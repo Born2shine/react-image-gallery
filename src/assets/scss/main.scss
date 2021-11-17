@@ -60,7 +60,7 @@ body{
         height: 100%;
         transform: translate(-100%);
         padding: 40px;
-        z-index: 3;
+        z-index: 9;
         color: $clr-white-1;
         .close-menu{
             position: absolute;
@@ -126,6 +126,16 @@ body{
     .main-content{
         width: 100vw;
         padding: 10px 20px;
+        .loader{
+            width: 100px;
+            position: absolute;
+            top: 280px;
+            left: 50%;
+            width: 140px;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            margin-top: 80px;
+        }
         .menu-btn{
             position: absolute;
             left: 18px;

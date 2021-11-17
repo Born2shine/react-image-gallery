@@ -97,7 +97,7 @@ body {
   -webkit-transform: translate(-100%);
           transform: translate(-100%);
   padding: 40px;
-  z-index: 3;
+  z-index: 9;
   color: #cbcaca;
 }
 
@@ -173,6 +173,18 @@ body {
 .main-wrapper .main-content {
   width: 100vw;
   padding: 10px 20px;
+}
+
+.main-wrapper .main-content .loader {
+  width: 100px;
+  position: absolute;
+  top: 280px;
+  left: 50%;
+  width: 140px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 5;
+  margin-top: 80px;
 }
 
 .main-wrapper .main-content .menu-btn {
