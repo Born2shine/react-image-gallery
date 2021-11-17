@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+// ====================
+    // COLOR VARIABLES
+// ====================
+
+$clr-primary: #1d1db1;
+$clr-primary-1: #1e1e9d;
+$clr-primary-10: #b8c7ce;
+$clr-danger: #f70f31;
+$clr-success: #8bc34a;
+$clr-grey: #767676;
+$clr-grey-1: #9e979740;
+$clr-grey-2: #fbfbfb69;
+$clr-dark: #333;
+$clr-white: #fff;
+$clr-white-1: #cbcaca;
+$transition: all .3s linear;
+$radius: 3px;
+$box-shadow: -1px 3px 8px rgba(0,0,0,0.1);
+
+// ================
+// BREAKPOINTS
+// ================
+// breakpoints
+$breakpoint-sm: 540px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 920px;
+$breakpoint-xl: 1200px;
+
+// ===================
+// BUTTONS
+// ===================
+
+.btn{
+    border: none;
+    color: $clr-white;
+    padding: 10px 20px;
+    font-family: inherit;
+    border-radius: $radius;
+    cursor: pointer;
+}
+.btn-primary{
+    background: $clr-primary;
+}
+.btn-danger{
+    background: $clr-danger;
+}
+.read{
+    color: $clr-white-1;
+}
+.liked{
+    color: $clr-danger;
+}
+.comment{
+    color: $clr-primary;
+}
