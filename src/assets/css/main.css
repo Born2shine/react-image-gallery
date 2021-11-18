@@ -183,7 +183,7 @@ body {
   width: 140px;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  z-index: 5;
+  z-index: 6;
   margin-top: 80px;
 }
 

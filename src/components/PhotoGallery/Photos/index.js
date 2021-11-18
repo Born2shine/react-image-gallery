@@ -1,38 +1,39 @@
 import { useEffect, useState } from "react";
 import { FaHeart,FaMapMarkerAlt, FaThumbsDown } from "react-icons/fa"
-import avatar from "../../../assets/images/avatars/Jab.png"
-import Loader from "../../../assets/images/loader.gif"
 import { useGloabalContext } from "../../../provider/context";
 
 const Photos = () => {
-  const [currentPhotos, setcurrentPhotos] = useState([])
-  const { queryData, searching} = useGloabalContext()
+  const { queryData, searching, setSearching, setqueryData} = useGloabalContext()
   
   const [photos, setPhotos] = useState([])
-  const [loading, setLoading, setSearching] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const CLIENT_ID = `?client_id=${process.env.REACT_APP_ACCESS_KEY}`
-  const MAIN_Url = `https://api.unsplash.com/photos`
+  const MAIN_URL = `https://api.unsplash.com/photos`
   const SEARCH_URL = `https://api.unsplash.com/search/photos`
 
   const fetchPhotos = async () => {
     let url;
     // url = `${MAIN_Url}/${CLIENT_ID}`
-    const queryURL = `?query=${queryData}`
+    const queryURL = `query=${queryData}`
     if(queryData){
-      url = `${MAIN_Url}/${CLIENT_ID}&${queryURL}`
+      url = `${SEARCH_URL}/${CLIENT_ID}&${queryURL}`
     }else{
-      url = `${MAIN_Url}/${CLIENT_ID}`
+      url = `${MAIN_URL}/${CLIENT_ID}`
     }
     try {
         setLoading(true)
         const res = await fetch(`${url}`)
         const data =  await res.json()
         console.log(data);
-
-        setPhotos(data)
+        if(queryData){
+          setPhotos(data.results)
+          setSearching(false)
+          setqueryData('')
+        }else{
+          setPhotos(data)
+        }
         setLoading(false)
-        setSearching(false)
         } catch (error) {
             setLoading(false)
             console.log(error)
@@ -40,13 +41,13 @@ const Photos = () => {
     }
   useEffect(() =>{
       fetchPhotos()
-  },[])
+  },[searching])
 
-  useEffect(() => {
-    if(queryData){
-      fetchPhotos()
-    }
-  }, [searching])
+  // useEffect(() => {
+  //   if(queryData){
+  //     fetchPhotos()
+  //   }
+  // }, [])
 
     return (
         <section className="photo-wrapper">

@@ -5,9 +5,7 @@ const AppContext = React.createContext();
 const AppProvider = ({children}) => {
     const [sideNavOpen, setSideNavOpen] = useState(false)
     const [isOpenModal, setOpenModal] = useState(false)
-    const [loading, setLoading] = useState(false)
     const [searching, setSearching] = useState(false)
-    const [photos, setPhotos] = useState([])
     const [queryData, setqueryData] = useState('')
 
     const toggleSideNav = () => setSideNavOpen(!sideNavOpen)
@@ -20,10 +18,10 @@ const AppProvider = ({children}) => {
         <AppContext.Provider value={{
             sideNavOpen,
             isOpenModal,
-            photos,
             queryData,
             searching,
             setSearching,
+            setqueryData,
             onInputChange,
             toggleSideNav,
             toggleNotificationModal,
