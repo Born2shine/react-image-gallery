@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { FaHeart,FaMapMarkerAlt, FaThumbsDown } from "react-icons/fa"
 import { useGloabalContext } from "../../../provider/context";
+import SinglePhoto from "../SinglePhoto";
 
 const Photos = () => {
   const { queryData, searching, setSearching, setqueryData} = useGloabalContext()
@@ -43,12 +43,6 @@ const Photos = () => {
       fetchPhotos()
   },[searching])
 
-  // useEffect(() => {
-  //   if(queryData){
-  //     fetchPhotos()
-  //   }
-  // }, [])
-
     return (
         <section className="photo-wrapper">
           {
@@ -59,31 +53,7 @@ const Photos = () => {
               {
                photos && photos.map((photo)=> {
                   return (
-                      <div className="single-photo" key={photo.id}>
-                      <div className="slider">
-                        <div className="slides">
-                          <span className="slide current-slide"></span>
-                          <span className="slide"></span>
-                          <span className="slide"></span>
-                          <span className="slide"></span>
-                        </div>
-                      </div>
-                      <img src={photo.urls.regular} alt={photo.alt_description} />
-                      <div className="info">
-                        <div className="name">{photo.user.first_name}, {photo.likes}</div>
-                        <span className="address"><FaMapMarkerAlt/> {photo.user.location ? photo.user.location : 'Not Available'}</span>
-                      </div>
-                      <div className="react">
-                        <div className="details">
-                          <div className="name">{photo.user.first_name}, {photo.likes}</div>
-                          <span className="address"><FaMapMarkerAlt/> {photo.user.location ? photo.user.location : 'Not Available'}</span>
-                        </div>
-                        <div className="react-btn">
-                          <a href="#" className="btn btn-danger"><FaHeart/></a>
-                          <a href="#" className="btn btn-primary"><FaThumbsDown/></a>
-                        </div>
-                      </div>
-                    </div>
+                      <SinglePhoto key={photo.id} photo={photo}/>
                   )
                 })
               }
