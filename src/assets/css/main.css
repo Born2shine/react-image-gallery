@@ -293,7 +293,7 @@ body {
   width: 200px;
   border-bottom-left-radius: 3px;
   border-top-left-radius: 3px;
-  z-index: 2;
+  z-index: 4;
 }
 
 .main-wrapper .main-content header .notification-wrapper .notification .notification-modal .chevro-up {
